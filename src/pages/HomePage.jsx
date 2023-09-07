@@ -17,6 +17,7 @@ export class HomePage extends Component {
         lastName: "Jons",
         categories: "Family",
         phone: "samsung",
+        done: false,
       },
       {
         id: 1,
@@ -24,6 +25,7 @@ export class HomePage extends Component {
         lastName: "Jons",
         categories: "Friends",
         phone: "Honor",
+        done: false,
       },
       {
         id: 2,
@@ -31,6 +33,7 @@ export class HomePage extends Component {
         lastName: "fors",
         categories: "Relatives",
         phone: "Iphone",
+        done: false,
       },
     ],
     todo: {
@@ -50,6 +53,7 @@ export class HomePage extends Component {
     if (categories !== "All") {
       todos = todos.filter((todo) => todo.categories === categories);
     }
+    const doneTodos = todos.filter((todo) => todo.done);
 
     let handleSearch = (e) => {
       this.setState({ search: e.target.value.trim().toLowerCase() });
@@ -66,7 +70,6 @@ export class HomePage extends Component {
         todos: newTodos,
         todo: { firsname: "", lastName: "", categories: "", phone: "" },
       });
-      
     };
 
     const handlTodoSubmit = (e) => {
@@ -74,11 +77,24 @@ export class HomePage extends Component {
       this.setState({ todo: newTodo });
     };
 
-    console.log(todo);
+    const doneTodo = (id) => {
+      console.log(id);
+      let newTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.done = true;
+        }
+        return todo;
+      });
+      this.setState({ todos: newTodos });
+    };
 
     return (
       <Container>
-        <Forminput todo={todo} handlTodoSubmit={handlTodoSubmit} submit={submit} />
+        <Forminput
+          todo={todo}
+          handlTodoSubmit={handlTodoSubmit}
+          submit={submit}
+        />
         <Filter
           handleCategory={handleCategory}
           search={search}
@@ -92,11 +108,13 @@ export class HomePage extends Component {
         >
           <Tab eventKey="All" title="All">
             {todos.map((todo, i) => (
-              <Item key={i} N={i + 1} {...todo} />
+              <Item doneTodo={doneTodo} key={i} N={i + 1} {...todo} />
             ))}
           </Tab>
           <Tab eventKey="Favourite" title="Favourite">
-            ...
+            {doneTodos.map((todo, i) => (
+              <Item doneTodo={doneTodo} key={i} N={i + 1} {...todo} />
+            ))}
           </Tab>
         </Tabs>
       </Container>

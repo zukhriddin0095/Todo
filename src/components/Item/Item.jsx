@@ -1,16 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
+import { Alert } from "react-bootstrap";
 
-
-import { Alert } from 'react-bootstrap';
-
-import "./item.scss"
+import "./item.scss";
 
 export class Item extends Component {
   render() {
-    const { firsname, lastName, categories, phone, N } = this.props;
+    const { id, firsname, lastName, categories, done, phone, N, doneTodo } =
+      this.props;
     return (
-      <Alert variant="success" className='d-flex align-items-center justify-content-between'>
+      <Alert
+        variant="success"
+        className="d-flex align-items-center justify-content-between"
+      >
         <div className="title">
           <h3>
             {N}. {firsname} {lastName}
@@ -18,12 +20,18 @@ export class Item extends Component {
           <h5>category: {categories}</h5>
           <h5>Phone: {phone}</h5>
         </div>
-        <div className="btn">
-          <button className='btn__done'>Done</button>
-        </div>
+        {done ? (
+          <span>❤️</span>
+        ) : (
+          <div className="btn">
+            <button onClick={() => doneTodo(id)} className="btn__done">
+              Done
+            </button>
+          </div>
+        )}
       </Alert>
     );
   }
 }
 
-export default Item
+export default Item;
