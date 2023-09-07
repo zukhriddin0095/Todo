@@ -1,0 +1,33 @@
+.nav-tabs {
+  display: flex;
+  gap: 15px;
+  border: none !important;
+}
+.nav-tabs .nav-link {
+  margin-bottom: 15px !important;
+  border: 1px solid #000 !important;
+  font-family: "Saira Semi Condensed";
+  font-size: 20px;
+  font-weight: 600;
+  border-top-left-radius: 15px !important;
+  border-bottom-right-radius: 15px !important;
+  border-bottom-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #fff !important;
+  font-family: "Saira Semi Condensed";
+  font-size: 20px;
+  font-weight: 600;
+  background: #3700ff !important;
+}
+
+.btn__done {
+  padding: 8px 26px;
+  font-family: "Saira Semi Condensed";
+  font-size: 20px;
+  font-weight: 600;
+  background: #3700ff;
+  color: #fff;
+}
