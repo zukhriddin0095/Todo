@@ -1,13 +1,12 @@
+import React, { Component } from "react";
 
-import React, { Component } from 'react'
-import { categories } from '../../data/categories';
+import { categories } from "../../data/categories";
 
-
-import "./filter.scss"
+import "./filter.scss";
 
 export class Filter extends Component {
   render() {
-    const { handleSearch, search, handleCategory } = this.props;
+    const { handleSearch, search, category, handleCategory } = this.props;
     return (
       <section>
         <div className="search">
@@ -18,12 +17,12 @@ export class Filter extends Component {
             className="searchInput"
             placeholder="Searching . . ."
           />
-          <i class="fa-solid fa-magnifying-glass searchicon"></i>
-          <select onChange={handleCategory} >
+          <i className="fa-solid fa-magnifying-glass searchicon"></i>
+          <select value={category} onChange={handleCategory}>
             <option value="All">All</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
+            {categories.map((el) => (
+              <option key={el} value={el}>
+                {el}
               </option>
             ))}
           </select>
@@ -33,4 +32,4 @@ export class Filter extends Component {
   }
 }
 
-export default Filter
+export default Filter;

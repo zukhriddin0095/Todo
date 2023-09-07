@@ -96,6 +96,7 @@ export class HomePage extends Component {
           submit={submit}
         />
         <Filter
+          category={categories}
           handleCategory={handleCategory}
           search={search}
           handleSearch={handleSearch}
@@ -108,7 +109,12 @@ export class HomePage extends Component {
         >
           <Tab eventKey="All" title="All">
             {todos.map((todo, i) => (
-              <Item doneTodo={doneTodo} key={i} N={i + 1} {...todo} />
+              <Item
+                doneTodo={doneTodo}
+                key={i}
+                N={i + 1}
+                {...todo}
+              />
             ))}
           </Tab>
           <Tab eventKey="Favourite" title="Favourite">

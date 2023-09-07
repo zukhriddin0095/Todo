@@ -8,9 +8,9 @@ export class Forminput extends Component {
     const { submit, handlTodoSubmit, todo } = this.props;
     return (
       <form onSubmit={submit}>
-        <div class="field" tabindex="1">
-          <label for="username">
-            <i class="far fa-user"></i>First Name
+        <div className="field">
+          <label>
+            <i className="far fa-user"></i>First Name
           </label>
           <input
             value={todo.firsname}
@@ -22,9 +22,9 @@ export class Forminput extends Component {
           />
         </div>
 
-        <div class="field" tabindex="2">
-          <label for="">
-            <i class="far fa-user"></i>Last Name
+        <div className="field">
+          <label>
+            <i className="far fa-user"></i>Last Name
           </label>
 
           <input
@@ -36,9 +36,9 @@ export class Forminput extends Component {
           />
         </div>
 
-        <div class="field" tabindex="2">
-          <label for="select">
-            <i class="fa-solid fa-hand-pointer"></i>Select ...
+        <div className="field">
+          <label>
+            <i className="fa-solid fa-hand-pointer"></i>Select ...
           </label>
           <select value={todo.categories} id="categories" onChange={handlTodoSubmit}>
             <option value="Select categories">Select categories</option>
@@ -50,9 +50,9 @@ export class Forminput extends Component {
           </select>
         </div>
 
-        <div class="field" tabindex="2">
-          <label for="phonenumber">
-            <i class="fa-solid fa-phone"></i>phone
+        <div className="field">
+          <label>
+            <i className="fa-solid fa-phone"></i>phone
           </label>
           <input
             value={todo.phone}
